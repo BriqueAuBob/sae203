@@ -1,5 +1,5 @@
 <?php
-if (!isset($_GET['name'])) {
+if (empty($_GET['name'])) {
     header('Location: form_recherche.php');
     exit();
 }

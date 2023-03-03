@@ -20,7 +20,7 @@
             <form action="reponse_recherche.php">
                 <div>
                     <label for="name">Nom du film</label>
-                    <input type="search" name="name" id="name">
+                    <input type="search" name="name" id="name" required>
                 </div>
                 <div class="list list-end">
                     <a href="index.php">Retour</a>
