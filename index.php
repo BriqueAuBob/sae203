@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AlloCinoch est un site web qui vous permet de voir une liste de films et séries.">
     <title>AlloCinoch - Accueil</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.min.css">
 </head>
 
 <body>
@@ -23,11 +23,11 @@
                     <div class="overlay">
                         <div class="texts">
                             <h1>Breaking Bad</h1>
-                            <p>Lorem Eiusmod proident consequat cillum nisi non non in nostrud deserunt cupidatat esse ullamco.</p>
+                            <p>Walter White, 50 ans, est professeur de chimie dans un lycée du Nouveau-Mexique. Pour subvenir aux besoins de Skyler, sa femme enceinte, et de Walt Junior, son fils handicapé, il est obligé de travailler doublement.</p>
                             <div class="genres">
                                 <span class="genre" style="--tag-color: #432818;">Drame</span>
-                                <span class="genre" style="--tag-color: #3a86ff;">Policier</span>
-                                <span class="genre" style="--tag-color: #ff0054;">Thriller</span>
+                                <span class="genre" style="--tag-color: #2A6ACF;">Policier</span>
+                                <span class="genre" style="--tag-color: #0C881A;">Thriller</span>
                                 <span class="genre" style="--tag-color: #222222;">Comédie noire</span>
                             </div>
                         </div>
@@ -41,10 +41,10 @@
                     <div class="overlay">
                         <div class="texts">
                             <h1>Taxi 5</h1>
-                            <p>Lorem Eiusmod proident consequat cillum nisi non non in nostrud deserunt cupidatat esse ullamco.</p>
+                            <p>Sylvain Marot, super flic parisien et pilote d’exception, est muté contre son gré à la Police Municipale de Marseille.</p>
                             <div class="genres">
-                                <span class="genre" style="--tag-color: #fca311;">Action</span>
-                                <span class="genre" style="--tag-color: #3a86ff;">Comédie policière</span>
+                                <span class="genre" style="--tag-color: #D60A4E;">Action</span>
+                                <span class="genre" style="--tag-color: #2A6ACF;">Comédie policière</span>
                             </div>
                         </div>
                         <a href="/film.php" class="btn square">
@@ -56,12 +56,12 @@
                     <img src="/images/fastfurious.webp" alt="Image de film">
                     <div class="overlay">
                         <div class="texts">
-                            <h1>Fast & Furious 2</h1>
-                            <p>Lorem Eiusmod proident consequat cillum nisi non non in nostrud deserunt cupidatat esse ullamco.</p>
+                            <h1>2 Fast 2 Furious</h1>
+                            <p>Brian O'Conner a signé sa plus belle action, mais aussi sa faute la plus grave, en laissant filer le chef du gang de voleurs de voitures qu'il avait mission d'infiltrer.</p>
                             <div class="genres">
-                                <span class="genre" style="--tag-color: #fca311;">Action</span>
-                                <span class="genre" style="--tag-color: #3a86ff;">Policier</span>
-                                <span class="genre" style="--tag-color: #ff0054;">Thriller</span>
+                                <span class="genre" style="--tag-color: #D60A4E;">Action</span>
+                                <span class="genre" style="--tag-color: #2A6ACF;">Policier</span>
+                                <span class="genre" style="--tag-color: #0C881A;">Thriller</span>
                             </div>
                         </div>
                         <a href="/film.php" class="btn square">
@@ -88,7 +88,7 @@
     ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src=" /js/script.js"></script>
+    <script src=" /js/script.min.js"></script>
 </body>
 
 </html>

@@ -448,7 +448,11 @@ footer {
 .list {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 48px;
+}
+
+.list.list-end {
+  justify-content: flex-end;
 }
 
 .btn-list {

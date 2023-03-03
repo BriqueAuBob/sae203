@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlloCinoch - Catalogue</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.min.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                     <label for="name">Nom du film</label>
                     <input type="search" name="name" id="name">
                 </div>
-                <div class="list">
+                <div class="list list-end">
                     <a href="index.php">Retour</a>
                     <button type="submit" class="btn">Rechercher</button>
                 </div>
@@ -35,7 +35,7 @@
     ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

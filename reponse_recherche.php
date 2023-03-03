@@ -13,7 +13,7 @@ if (!isset($_GET['name'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlloCinoch - Catalogue</title>
     <meta name="description" content="Retrouvez la liste de films et séries sur cette page.">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.min.css">
 </head>
 
 <body>
@@ -25,17 +25,15 @@ if (!isset($_GET['name'])) {
         <h1>Liste des films/séries dont le titre est "<?= htmlspecialchars($_GET['name']) ?>"</h1>
         <section class="grid">
             <article class="card clickable image h-auto">
-                <img src="https://www.themoviedb.org/t/p/w1280/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Image de film">
+                <img src="/images/taxi5.webp" alt="Image de film">
                 <div class="overlay minimal">
                     <div class="content">
-                        <h1>Breaking Bad</h1>
-                        <p>Lorem eiusmod commodo minim adipisicing ex ut est veniam.</p>
-                        <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge">45 min</span>
+                        <h1>Taxi 5</h1>
+                        <p>Sylvain Marot, super flic parisien et pilote d’exception, est muté contre son gré à la Police Municipale de Marseille.</p>
+                        <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge">102 min</span>
                         <div class="genres">
-                            <span class="genre" style="--tag-color: #432818;">Drame</span>
-                            <span class="genre" style="--tag-color: #3a86ff;">Policier</span>
-                            <span class="genre" style="--tag-color: #ff0054;">Thriller</span>
-                            <span class="genre" style="--tag-color: #222222;">Comédie noire</span>
+                            <span class="genre" style="--tag-color: #D60A4E;">Action</span>
+                            <span class="genre" style="--tag-color: #2A6ACF;">Comédie policière</span>
                         </div>
                     </div>
                 </div>
@@ -56,17 +54,16 @@ if (!isset($_GET['name'])) {
                 </div>
             </article>
             <article class="card clickable image h-auto">
-                <img src="https://www.themoviedb.org/t/p/w1280/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Image de film">
+                <img src="/images/2fast2furious.webp" alt="Image de film">
                 <div class="overlay minimal">
                     <div class="content">
-                        <h1>Breaking Bad</h1>
-                        <p>Lorem eiusmod commodo minim adipisicing ex ut est veniam.</p>
-                        <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge">45 min</span>
+                        <h1>2 Fast 2 Furious</h1>
+                        <p>Brian O'Conner a signé sa plus belle action, mais aussi sa faute la plus grave, en laissant filer le chef du gang de voleurs de voitures qu'il avait mission d'infiltrer.</p>
+                        <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge">107 min</span>
                         <div class="genres">
-                            <span class="genre" style="--tag-color: #432818;">Drame</span>
-                            <span class="genre" style="--tag-color: #3a86ff;">Policier</span>
-                            <span class="genre" style="--tag-color: #ff0054;">Thriller</span>
-                            <span class="genre" style="--tag-color: #222222;">Comédie noire</span>
+                            <span class="genre" style="--tag-color: #D60A4E;">Action</span>
+                            <span class="genre" style="--tag-color: #2A6ACF;">Policier</span>
+                            <span class="genre" style="--tag-color: #0C881A;">Thriller</span>
                         </div>
                     </div>
                 </div>
@@ -87,16 +84,16 @@ if (!isset($_GET['name'])) {
                 </div>
             </article>
             <article class="card clickable image h-auto">
-                <img src="https://www.themoviedb.org/t/p/w1280/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Image de film">
+                <img src="/images/breaking_bad.webp" alt="Image de film">
                 <div class="overlay minimal">
                     <div class="content">
                         <h1>Breaking Bad</h1>
-                        <p>Lorem eiusmod commodo minim adipisicing ex ut est veniam.</p>
+                        <p>Walter White, 50 ans, est professeur de chimie dans un lycée du Nouveau-Mexique. Pour subvenir aux besoins de Skyler...</p>
                         <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge">45 min</span>
                         <div class="genres">
                             <span class="genre" style="--tag-color: #432818;">Drame</span>
-                            <span class="genre" style="--tag-color: #3a86ff;">Policier</span>
-                            <span class="genre" style="--tag-color: #ff0054;">Thriller</span>
+                            <span class="genre" style="--tag-color: #2A6ACF;">Policier</span>
+                            <span class="genre" style="--tag-color: #0C881A;">Thriller</span>
                             <span class="genre" style="--tag-color: #222222;">Comédie noire</span>
                         </div>
                     </div>
@@ -129,7 +126,7 @@ if (!isset($_GET['name'])) {
     ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>
