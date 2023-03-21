@@ -1,0 +1,15 @@
+@import "https://api.fontshare.com/v2/css?f[]=outfit@400,800,300,500,600,700&display=swap";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #010101;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}

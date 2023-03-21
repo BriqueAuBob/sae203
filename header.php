@@ -17,7 +17,7 @@ $currentLink = basename($_SERVER['PHP_SELF']);
             <li><a <?= $currentLink === 'index.php' ? 'class="active"' : '' ?> href="index.php">Accueil</a></li>
             <li><a <?= $currentLink === 'listing.php' ? 'class="active"' : '' ?> href="listing.php">Catalogue</a></li>
             <li><a <?= $currentLink === 'form_recherche.php' ? 'class="active"' : '' ?> href="form_recherche.php">Rechercher</a></li>
-            <li><a <?= $currentLink === 'admin.php' ? 'class="active"' : '' ?> href="admin.php">Administration</a></li>
+            <li><a href="/admin/admin.php">Administration</a></li>
         </ul>
     </nav>
 </header>

@@ -1,3 +1,23 @@
+<?php
+require('lib/db.inc.php');
+require('lib/lib.inc.php');
+
+$query = $db->prepare("SELECT 
+        movies.id as id,
+        movies.name as name, 
+        movies.description as description, 
+        movies.picture as picture,
+        GROUP_CONCAT(CONCAT(genres.name, ' (', genres.fg_color, '/', genres.bg_color, ')') SEPARATOR ', ') AS genres
+    FROM movies 
+    LEFT JOIN movies_genres ON movies.id = movies_genres.film_id 
+    LEFT JOIN genres ON movies_genres.genre_id = genres.id
+    GROUP BY movies.id
+    ORDER BY RAND() LIMIT 6
+");
+$query->execute();
+$movies = $query->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,57 +38,32 @@
     <main id="main_index">
         <div class="carousel">
             <div class="carousel_inner">
-                <article class="carousel_item card big image">
-                    <img src="/images/breaking.webp" alt="Image de film">
-                    <div class="overlay">
-                        <div class="texts">
-                            <h1>Breaking Bad</h1>
-                            <p>Walter White, 50 ans, est professeur de chimie dans un lycée du Nouveau-Mexique. Pour subvenir aux besoins de Skyler, sa femme enceinte, et de Walt Junior, son fils handicapé, il est obligé de travailler doublement.</p>
-                            <div class="genres">
-                                <span class="genre" style="--tag-color: #432818;">Drame</span>
-                                <span class="genre" style="--tag-color: #2A6ACF;">Policier</span>
-                                <span class="genre" style="--tag-color: #0C881A;">Thriller</span>
-                                <span class="genre" style="--tag-color: #222222;">Comédie noire</span>
+                <?php
+                foreach ($movies as $movie) {
+                ?>
+                    <article class="carousel_item card big image">
+                        <img src="/data/movies/<?= $movie['picture'] ?>" alt="Image de film">
+                        <div class="overlay">
+                            <div class="texts">
+                                <h1><?= $movie['name'] ?></h1>
+                                <p><?= $movie['description'] ?></p>
+                                <div class="genres">
+                                    <?php
+                                    $genres = explode(', ', $movie['genres']);
+                                    foreach ($genres as $genre) {
+                                        generateGenreSpan($genre);
+                                    }
+                                    ?>
+                                </div>
                             </div>
+                            <a href="/film.php?id=<?= $movie['id'] ?>" class="btn square">
+                                <img class="big" src="/images/eye.svg" alt="eye">
+                            </a>
                         </div>
-                        <a href="/film.php" class="btn square">
-                            <img class="big" src="/images/eye.svg" alt="eye">
-                        </a>
-                    </div>
-                </article>
-                <article class="carousel_item card big image">
-                    <img src="/images/taxi.webp" alt="Image de film">
-                    <div class="overlay">
-                        <div class="texts">
-                            <h1>Taxi 5</h1>
-                            <p>Sylvain Marot, super flic parisien et pilote d’exception, est muté contre son gré à la Police Municipale de Marseille.</p>
-                            <div class="genres">
-                                <span class="genre" style="--tag-color: #D60A4E;">Action</span>
-                                <span class="genre" style="--tag-color: #2A6ACF;">Comédie policière</span>
-                            </div>
-                        </div>
-                        <a href="/film.php" class="btn square">
-                            <img class="big" src="/images/eye.svg" alt="eye">
-                        </a>
-                    </div>
-                </article>
-                <article class="carousel_item card big image">
-                    <img src="/images/fastfurious.webp" alt="Image de film">
-                    <div class="overlay">
-                        <div class="texts">
-                            <h1>2 Fast 2 Furious</h1>
-                            <p>Brian O'Conner a signé sa plus belle action, mais aussi sa faute la plus grave, en laissant filer le chef du gang de voleurs de voitures qu'il avait mission d'infiltrer.</p>
-                            <div class="genres">
-                                <span class="genre" style="--tag-color: #D60A4E;">Action</span>
-                                <span class="genre" style="--tag-color: #2A6ACF;">Policier</span>
-                                <span class="genre" style="--tag-color: #0C881A;">Thriller</span>
-                            </div>
-                        </div>
-                        <a href="/film.php" class="btn square">
-                            <img class="big" src="/images/eye.svg" alt="Eye">
-                        </a>
-                    </div>
-                </article>
+                    </article>
+                <?php
+                }
+                ?>
             </div>
         </div>
         <article class="card">

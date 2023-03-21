@@ -1,6 +1,4 @@
-@import (
-  "https://api.fontshare.com/v2/css?f[]=outfit@400,800,300,500,600,700&display=swap"
-);
+@import "https://api.fontshare.com/v2/css?f[]=outfit@400,800,300,500,600,700&display=swap";
 
 * {
   box-sizing: border-box;
@@ -143,6 +141,10 @@ h5,
 h6,
 p {
   margin: 8px 0;
+}
+
+.center {
+  text-align: center;
 }
 
 #main_index {
@@ -505,7 +507,7 @@ input {
 }
 
 .mt-32 {
-  margin-top: 32px;
+  margin-top: 32px !important;
 }
 
 .casting h2 {
@@ -518,14 +520,21 @@ input {
   gap: 8px;
   align-items: center;
   font-weight: 600;
+  padding: 16px;
 }
 
-.casting .actor img {
+.casting .actor > img:nth-child(1) {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.casting .actor > img:nth-child(3) {
+  width: 72px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @media screen and (min-width: 480px) {

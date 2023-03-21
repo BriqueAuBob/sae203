@@ -12,41 +12,83 @@
 <body>
     <?php
     require('header.php');
+
+    require('lib/db.inc.php');
+    require('lib/lib.inc.php');
+
+    $query = $db->prepare("SELECT 
+        movies.id as id,
+        movies.name as name, 
+        movies.description as description, 
+        movies.picture as picture,
+        movies.duration as duration,
+        movies.revenue as revenue,
+        movies.budget as budget,
+        movies.release_date as release_date,
+        GROUP_CONCAT(CONCAT(genres.name, ' (', genres.fg_color, '/', genres.bg_color, ')') SEPARATOR ', ') AS genres FROM movies 
+        LEFT JOIN movies_genres ON movies.id = movies_genres.film_id 
+        LEFT JOIN genres ON movies_genres.genre_id = genres.id
+        GROUP BY movies.id
+    ");
+    $query->execute();
+    $movies = $query->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
     <main class="container">
         <h1>Catalogue</h1>
         <section class="grid">
-            <article class="card clickable image h-auto">
-                <img src="/images/taxi5.webp" alt="Image de film">
-                <div class="overlay minimal">
-                    <div class="content">
-                        <h1>Taxi 5</h1>
-                        <p>Sylvain Marot, super flic parisien et pilote d’exception, est muté contre son gré à la Police Municipale de Marseille.</p>
-                        <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge">102 min</span>
-                        <div class="genres">
-                            <span class="genre" style="--tag-color: #D60A4E;">Action</span>
-                            <span class="genre" style="--tag-color: #2A6ACF;">Comédie policière</span>
+            <?php
+            foreach ($movies as $movie) {
+            ?>
+                <article class="card clickable image h-auto">
+                    <img src="/data/movies/<?= $movie['picture'] ?>" alt="<?= $movie['name'] ?>">
+                    <div class="overlay minimal">
+                        <div class="content">
+                            <h1><?= $movie['name'] ?></h1>
+                            <p><?= substr($movie['description'], 0, 120) ?></p>
+                            <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge"><?= $movie['duration'] ?> min</span>
+                            <div class="genres">
+                                <?php
+                                $genres = explode(', ', $movie['genres']);
+                                foreach ($genres as $genre) {
+                                    generateGenreSpan($genre);
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="popup">
-                    <div>
-                        Date de sortie
-                        <span class="tag">20 janvier 2008</span>
+                    <div class="popup">
+                        <div>
+                            Date de sortie
+                            <span class="tag"><?= $movie['release_date'] ?></span>
+                        </div>
+                        <div>
+                            Budget
+                            <?php
+                            if ($movie['budget'] == 0) {
+                                echo ' <span class="tag">Inconnu</span>';
+                            } else {
+                                echo '<span class="tag">$' . (new \NumberFormatter("fr-FR", \NumberFormatter::DECIMAL))->format($movie['budget']) . '</span>';
+                            }
+                            ?>
+                        </div>
+                        <div>
+                            Bénéfices
+                            <?php
+                            if ($movie['revenue'] == 0) {
+                                echo ' <span class="tag">Inconnu</span>';
+                            } else {
+                                echo '<span class="tag">$' . (new \NumberFormatter("fr-FR", \NumberFormatter::DECIMAL))->format($movie['revenue']) . '</span>';
+                            }
+                            ?>
+                        </div>
+                        <a href="/film.php?id=<?= $movie['id'] ?>" class="btn full"><img src="/images/eye.svg" alt="Pictogramme lecture">Voir plus</a>
                     </div>
-                    <div>
-                        Budget
-                        <span class="tag">20M</span>
-                    </div>
-                    <div>
-                        Bénéfices
-                        <span class="tag">30M</span>
-                    </div>
-                    <a href="/film.php" class="btn full"><img src="/images/eye.svg" alt="Pictogramme lecture">Voir plus</a>
-                </div>
-            </article>
-            <article class="card clickable image h-auto">
+                </article>
+            <?php
+            }
+            ?>
+            <!-- <article class="card clickable image h-auto">
                 <img src="/images/2fast2furious.webp" alt="Image de film">
                 <div class="overlay minimal">
                     <div class="content">
@@ -106,7 +148,7 @@
                     </div>
                     <a href="/film.php" class="btn full"><img src="/images/eye.svg" alt="Pictogramme lecture">Voir plus</a>
                 </div>
-            </article>
+            </article> -->
         </section>
         <div class="mt-24">
             <a href="index.php" class="btn black big"><img src="/images/arrow-back.svg" alt="Pictogramme flèche gauche">Retour</a>
