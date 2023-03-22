@@ -13,6 +13,7 @@ foreach ($images as $image) {
         continue;
     }
 
+    echo 'c';
     $image = str_replace(__DIR__ . '/images/uploads/', '', $image);
     // search  in the file name
     if (strpos($image, ':') !== false) {
