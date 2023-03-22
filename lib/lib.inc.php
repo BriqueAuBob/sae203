@@ -10,3 +10,11 @@ function generateGenreSpan($genre)
     $genre_bg_color = substr($genre_colors[1], 0, -1);
     echo "<span class=\"genre\" style=\"--tag-color: #{$genre_bg_color}; color: #{$genre_fg_color};\">{$genre_name}</span>";
 }
+
+function transformToWebp($picture, $path)
+{
+    $jpeg = imagecreatefromstring($picture);
+    $webp = imagecreatetruecolor(imagesx($jpeg), imagesy($jpeg));
+    imagecopy($webp, $jpeg, 0, 0, 0, 0, imagesx($jpeg), imagesy($jpeg));
+    imagewebp($webp, $path);
+}

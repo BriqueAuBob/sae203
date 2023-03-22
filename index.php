@@ -42,7 +42,7 @@ $movies = $query->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($movies as $movie) {
                 ?>
                     <article class="carousel_item card big image">
-                        <img src="/data/movies/<?= $movie['picture'] ?>" alt="Image de film">
+                        <img src="/images/uploads/<?= $movie['picture'] ?>" alt="Image de film">
                         <div class="overlay">
                             <div class="texts">
                                 <h1><?= $movie['name'] ?></h1>

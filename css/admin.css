@@ -12,4 +12,281 @@ body {
   font-family: "Outfit", sans-serif;
   overflow-x: hidden;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 48px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: ease 0.2s;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  background: #121212;
+  height: 100vh;
+  border-right: 2px solid #1c1c1c;
+}
+
+aside > a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 900;
+  margin: 32px 0 0 32px;
+}
+
+main {
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+nav#menu {
+  margin-top: 8px;
+  padding: 0 32px;
+}
+
+nav#menu > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+nav#menu > ul > li {
+  margin-bottom: 8px;
+}
+
+nav#menu > ul > li > a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 16px;
+  border-radius: 8px;
+  transition: ease 0.2s;
+  font-weight: 600;
+}
+
+nav#menu > ul > li > a.active,
+nav#menu > ul > li > a:hover {
+  background: #2c2c2c;
+}
+
+aside .user {
+  margin-top: auto;
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #1c1c1c;
+  padding: 32px;
+}
+
+aside .user span {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+table img {
+  width: 90px;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  border-spacing: 24px;
+}
+
+table th {
+  background: #2c2c2c;
+  color: white;
+  padding: 8px;
+  text-align: left;
+}
+
+table th:nth-child(1) {
+  border-radius: 8px 0 0 0;
+}
+
+table th:nth-last-child(1) {
+  border-radius: 0 8px 0 0;
+}
+
+table td {
+  padding: 8px;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+table tr:nth-child(even) {
+  background: #202020;
+}
+
+table tr:nth-child(odd) {
+  background: #181818;
+}
+
+table tbody tr:nth-last-child(1) td:nth-child(1) {
+  border-radius: 0 0 0 8px;
+}
+
+table tbody tr:nth-last-child(1) td:nth-last-child(1) {
+  border-radius: 0 0 8px 0;
+}
+
+.btn {
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  background: #373737;
+  transition: ease-in 0.2s;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: #525252;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn-group > * {
+  border-right: 1px solid #1c1c1c;
+}
+
+.btn-group > *:nth-child(1) {
+  border-radius: 8px 0 0 8px;
+}
+
+.btn-group > *:nth-last-child(1) {
+  border-radius: 0 8px 8px 0;
+  border: none;
+}
+
+.btn.red {
+  background: #c0392b;
+}
+
+.btn.red:hover {
+  background: #e74c3c;
+}
+
+.btn.green {
+  background: #27ae60;
+}
+
+.btn.green:hover {
+  background: #2ecc71;
+}
+
+form {
+  margin-top: 24px;
+  max-width: 400px;
+}
+
+form > div > label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2c2c2c;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #2c2c2c;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+select[multiple] {
+  min-height: 200px;
+}
+
+form > div > img {
+  width: 75%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+form .btn {
+  width: 100%;
+  margin-bottom: 96px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 8px;
+  border-radius: 16px;
+  background: #1d1d1d;
+  border: 1px solid rgb(45, 45, 45);
+  width: fit-content;
+  margin-left: auto;
+}
+
+.pagination a {
+  color: white;
+  text-decoration: none;
+  border-radius: 120px;
+  transition: ease-in 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+}
+
+.pagination a.active,
+.pagination a:hover {
+  background: #3c3c3c;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  width: 50%;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }

@@ -50,7 +50,7 @@ if (empty($_GET['name'])) {
             foreach ($movies as $movie) {
             ?>
                 <article class="card clickable image h-auto">
-                    <img src="/data/movies/<?= $movie['picture'] ?>" alt="<?= $movie['name'] ?>">
+                    <img src="/images/uploads/<?= $movie['picture'] ?>" alt="<?= $movie['name'] ?>">
                     <div class="overlay minimal">
                         <div class="content">
                             <h1><?= $movie['name'] ?></h1>

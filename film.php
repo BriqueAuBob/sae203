@@ -75,7 +75,7 @@ $movie = $query->fetch(PDO::FETCH_ASSOC);
                     foreach ($actors as $actor) {
                         echo <<<HTML
                             <article class="card actor">
-                                <img src="/data/images/{$actor['picture']}" alt="{$actor['first_name']} {$actor['last_name']}">
+                                <img src="/images/uploads/{$actor['picture']}" alt="{$actor['first_name']} {$actor['last_name']}">
                                 <h1>{$actor['first_name']} {$actor['last_name']}</h1>
                                 <img src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/{$actor['nationality']}.svg" alt="US">
                             </article>
