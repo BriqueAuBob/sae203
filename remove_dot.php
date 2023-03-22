@@ -13,10 +13,10 @@ foreach ($images as $image) {
         continue;
     }
 
-    echo 'c';
     $image = str_replace(__DIR__ . '/images/uploads/', '', $image);
     // search  in the file name
     if (strpos($image, ':') !== false) {
+        echo 'found';
         $newname = str_replace(':', '-', $image);
         rename(__DIR__ . '/images/uploads/' . $image, __DIR__ . '/images/uploads/' . $newname);
         $query = $db->prepare('UPDATE movies SET picture = :newname WHERE picture = :oldname');
