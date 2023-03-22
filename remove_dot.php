@@ -2,7 +2,10 @@
 
 set_time_limit(99999999999999);
 
+echo 'ah';
+
 require 'lib/db.inc.php';
+echo 'b';
 
 $images = glob("images/uploads/*.*");
 foreach ($images as $image) {
@@ -22,3 +25,5 @@ foreach ($images as $image) {
         ));
     }
 }
+
+echo 'test';
