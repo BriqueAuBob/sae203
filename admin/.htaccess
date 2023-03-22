@@ -1,0 +1,5 @@
+DirectoryIndex admin.php
+RewriteEngine On
+RewriteRule films /var/www/sae203/admin/table1_gestion.php
+RewriteRule genres /var/www/sae203/admin/table2_gestion.php
+RewriteRule acteurs /var/www/sae203/admin/table3_gestion.php
