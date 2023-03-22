@@ -7,7 +7,8 @@ echo 'ah';
 require 'lib/db.inc.php';
 echo 'b';
 
-$images = glob("images/uploads/*.*");
+$images = glob(__DIR__ . "/images/uploads/*.*");
+var_dump($images);
 foreach ($images as $image) {
     if (is_dir($image)) {
         continue;
