@@ -14,7 +14,6 @@
     include 'sidebar.php';
     require '../lib/db.inc.php';
 
-    // count all movies, all actors and all genres in one query
     $query = $db->query("SELECT (SELECT COUNT(*) FROM movies) AS movies, (SELECT COUNT(*) FROM actors) AS actors, (SELECT COUNT(*) FROM genres) AS genres");
     $counts = $query->fetch(PDO::FETCH_ASSOC);
     ?>
