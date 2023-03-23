@@ -49,3 +49,10 @@ function displayPagination($page, $per_page, $search, $table, $fields)
     }
     echo '</div>';
 }
+
+function convertMinutesToHours($minutes)
+{
+    $hours = floor($minutes / 60);
+    $minutes = $minutes % 60;
+    return $hours . 'h' . $minutes;
+}
