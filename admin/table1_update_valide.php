@@ -93,6 +93,7 @@
         <a class="btn" href="table1_gestion.php">Retour à la liste des films</a>
         <a class="btn" href="table1_update_form.php?id=<?= $movieId ?>">Modifier de nouveau</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

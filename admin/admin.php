@@ -22,6 +22,7 @@
             <li><a href="admin_films_add.php">Ajouter un film</a></li>
         </ul>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

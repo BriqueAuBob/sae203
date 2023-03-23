@@ -72,6 +72,7 @@
         <a class="btn" href="table3_gestion.php">Retour à la liste des acteurs</a>
         <a class="btn" href="table3_update_form.php?id=<?= $actorId ?>">Modifier de nouveau</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

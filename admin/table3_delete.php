@@ -39,6 +39,7 @@
         <h1>L'acteur <?= $actor['first_name'] . ' ' . $actor['last_name'] ?> a bien été supprimé.</h1>
         <a class="btn" href="table3_gestion.php">Retour à la liste des acteurs</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

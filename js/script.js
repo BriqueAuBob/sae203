@@ -1,16 +1,29 @@
 const buttons_menu = document.querySelectorAll(".burger_icon");
 const menu = document.getElementById("menu");
+const aside = document.querySelector("aside");
 for (const button of buttons_menu) {
   button.addEventListener("click", () => {
     if (menu.classList.contains("open")) {
       menu.classList.remove("open");
+      if (aside) {
+        aside.classList.remove("open");
+      }
       setTimeout(() => {
         menu.classList.remove("visible");
+        if (aside) {
+          aside.classList.remove("visible");
+        }
       }, 300);
     } else {
       menu.classList.add("visible");
+      if (aside) {
+        aside.classList.add("visible");
+      }
       window.requestAnimationFrame(() => {
         menu.classList.add("open");
+        if (aside) {
+          aside.classList.add("open");
+        }
       });
     }
   });

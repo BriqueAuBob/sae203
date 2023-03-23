@@ -39,6 +39,7 @@
             <button class="btn green" type="submit">Modifier</button>
         </form>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

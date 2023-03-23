@@ -121,6 +121,7 @@
             thumbnail.src = URL.createObjectURL(picture.files[0]);
         });
     </script>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

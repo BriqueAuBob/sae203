@@ -80,6 +80,7 @@
         <h1>Le film a bien été ajouté.</h1>
         <a class="btn" href="table1_gestion.php">Retour à la liste des films</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

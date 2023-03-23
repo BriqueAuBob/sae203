@@ -41,6 +41,7 @@
         <a class="btn" href="table2_gestion.php">Retour à la liste des genre</a>
         <a class="btn" href="table2_update_form.php?id=<?= $id ?>">Modifier de nouveau</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

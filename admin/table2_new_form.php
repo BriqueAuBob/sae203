@@ -32,6 +32,7 @@
             <button class="btn green" type="submit">Ajouter</button>
         </form>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

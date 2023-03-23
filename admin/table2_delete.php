@@ -39,6 +39,7 @@
         <h1>Le genre <?= $genre['name'] ?> a bien été supprimé.</h1>
         <a class="btn" href="table2_gestion.php">Retour à la liste des genres</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

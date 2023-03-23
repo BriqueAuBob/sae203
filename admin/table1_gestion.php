@@ -15,7 +15,7 @@ $search = $_GET['search'] ?? '';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlloCinoch - Gestion des films</title>
-    <link rel="stylesheet" href="/css/admin.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 
 <body>
@@ -82,6 +82,8 @@ $search = $_GET['search'] ?? '';
         ]);
         ?>
     </main>
+
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

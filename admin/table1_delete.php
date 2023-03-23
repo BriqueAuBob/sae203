@@ -39,6 +39,7 @@
         <h1>Le film <?= $movie['name'] ?> a bien été supprimé.</h1>
         <a class="btn" href="table1_gestion.php">Retour à la liste des films</a>
     </main>
+    <script src="/js/script.min.js"></script>
 </body>
 
 </html>

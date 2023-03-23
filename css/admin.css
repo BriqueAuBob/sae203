@@ -297,3 +297,56 @@ form .btn {
   height: 32px;
   border-radius: 50%;
 }
+
+.circle.red {
+  background: #c0392b;
+}
+
+.burger_icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  background: rgb(45, 45, 45);
+  border-radius: 50%;
+  top: 16px;
+  right: 16px;
+  z-index: 99;
+  display: none;
+}
+
+.burger_icon img {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    display: block;
+  }
+
+  aside {
+    display: none;
+    height: auto;
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: ease 0.2s;
+  }
+
+  aside.visible {
+    display: flex;
+  }
+
+  aside.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .burger_icon {
+    display: flex;
+  }
+}
