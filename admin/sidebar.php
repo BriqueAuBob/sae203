@@ -6,9 +6,9 @@ $currentLink = basename($_SERVER['PHP_SELF']);
     <nav id="menu">
         <ul>
             <li><a <?= $currentLink === 'admin.php' ? 'class="active"' : '' ?> href="admin.php">Tableau de bord</a></li>
-            <li><a <?= $currentLink === 'table1_gestion.php' ? 'class="active"' : '' ?> href="table1_gestion.php">Films</a></li>
-            <li><a <?= $currentLink === 'table2_gestion.php' ? 'class="active"' : '' ?> href="table2_gestion.php">Genres</a></li>
-            <li><a <?= $currentLink === 'table3_gestion.php' ? 'class="active"' : '' ?> href="table3_gestion.php">Acteurs</a></li>
+            <li><a <?= $currentLink === 'table1_gestion.php' ? 'class="active"' : '' ?> href="films">Films</a></li>
+            <li><a <?= $currentLink === 'table2_gestion.php' ? 'class="active"' : '' ?> href="genres">Genres</a></li>
+            <li><a <?= $currentLink === 'table3_gestion.php' ? 'class="active"' : '' ?> href="acteurs">Acteurs</a></li>
         </ul>
     </nav>
     <?php
