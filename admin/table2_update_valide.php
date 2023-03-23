@@ -38,6 +38,8 @@
         ?>
 
         <h1>Le genre <?= $name ?> a bien été modifié.</h1>
+        <a class="btn" href="table2_gestion.php">Retour à la liste des genre</a>
+        <a class="btn" href="table2_update_form.php?id=<?= $id ?>">Modifier de nouveau</a>
     </main>
 </body>
 

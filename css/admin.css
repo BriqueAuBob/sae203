@@ -14,7 +14,6 @@ body {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  gap: 48px;
 }
 
 button {
@@ -43,7 +42,7 @@ aside > a {
 main {
   max-height: 100vh;
   overflow-y: auto;
-  padding: 16px;
+  padding: 16px 24px 128px 24px;
 }
 
 nav#menu {
@@ -192,6 +191,14 @@ table tbody tr:nth-last-child(1) td:nth-last-child(1) {
 form {
   margin-top: 24px;
   max-width: 400px;
+}
+
+form#search {
+  margin-top: 0;
+}
+
+form#search input {
+  margin-bottom: 0;
 }
 
 form > div > label {

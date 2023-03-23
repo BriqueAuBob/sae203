@@ -1,3 +1,12 @@
+<?php
+require '../lib/db.inc.php';
+require '../lib/lib.inc.php';
+
+$page = $_GET['page'] ?? 1;
+$per_page = 25;
+
+$search = $_GET['search'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,7 +25,13 @@
 
     <main>
         <h1>Films</h1>
-        <a class="btn" href="table1_new_form.php">Ajouter un film</a>
+        <div class="space-between">
+            <a class="btn" href="table1_new_form.php">Ajouter un film</a>
+            <form id="search" class="search" action="table1_gestion.php" method="GET">
+                <input type="hidden" name="page" value="1">
+                <input type="search" placeholder="Rechercher" name="search" value="<?= $search ?>">
+            </form>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -32,8 +47,11 @@
             </thead>
             <tbody>
                 <?php
-                require '../lib/db.inc.php';
-                $query = $db->query('SELECT * FROM movies');
+                $query = $db->prepare('SELECT * FROM movies WHERE name LIKE :search OR description LIKE :search ORDER BY id LIMIT :per_page OFFSET :page');
+                $query->bindValue(':per_page', $per_page, PDO::PARAM_INT);
+                $query->bindValue(':page', (isset($page) ? $page - 1 : 0) * $per_page, PDO::PARAM_INT);
+                $query->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+                $query->execute();
                 $movies = $query->fetchAll();
                 foreach ($movies as $movie) {
                 ?>
@@ -57,6 +75,12 @@
                 ?>
             </tbody>
         </table>
+        <?php
+        displayPagination($page, $per_page, $search, 'movies', [
+            'name',
+            'description'
+        ]);
+        ?>
     </main>
 </body>
 

@@ -62,6 +62,7 @@
         ?>
 
         <h1>L'acteur a bien été ajouté.</h1>
+        <a class="btn" href="table3_gestion.php">Retour à la liste des acteurs</a>
     </main>
 </body>
 

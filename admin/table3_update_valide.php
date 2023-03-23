@@ -28,7 +28,7 @@
         $last_name = $_POST['last_name'];
         $picture = $_FILES['picture'];
         $nationality = $_POST['nationality'];
-        $movies = $_POST['movies'];
+        $movies = $_POST['movies'] ?? [];
 
         if ($picture['name'] !== '') {
             $imageType = $picture["type"];
@@ -69,6 +69,8 @@
         ?>
 
         <h1>L'acteur <?= $first_name . ' ' . $last_name ?> a bien été modifié.</h1>
+        <a class="btn" href="table3_gestion.php">Retour à la liste des acteurs</a>
+        <a class="btn" href="table3_update_form.php?id=<?= $actorId ?>">Modifier de nouveau</a>
     </main>
 </body>
 

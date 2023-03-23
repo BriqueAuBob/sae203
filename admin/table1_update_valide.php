@@ -19,7 +19,7 @@
     <main>
         <?php
 
-        if (!isset($_POST['id']) || !isset($_POST['name']) || !isset($_POST['description']) || !isset($_POST['duration']) || !isset($_POST['budget']) || !isset($_POST['benefices']) || !isset($_POST['teaser']) || !isset($_POST['release_date']) || !isset($_FILES['picture']) || !isset($_POST['genres']) || !isset($_POST['actors'])) {
+        if (!isset($_POST['id']) || !isset($_POST['name']) || !isset($_POST['description']) || !isset($_POST['duration']) || !isset($_POST['budget']) || !isset($_POST['benefices']) || !isset($_POST['teaser']) || !isset($_POST['release_date']) || !isset($_FILES['picture'])) {
             echo '<p>Erreur : tous les champs ne sont pas remplis !</p>';
             die();
         }
@@ -33,8 +33,8 @@
         $teaser = $_POST['teaser'];
         $release_date = $_POST['release_date'];
         $picture = $_FILES['picture'];
-        $genres = $_POST['genres'];
-        $actors = $_POST['actors'];
+        $genres = $_POST['genres'] ?? [];
+        $actors = $_POST['actors'] ?? [];
 
         if ($picture['name'] !== '') {
             $imageType = $picture["type"];
@@ -90,6 +90,8 @@
         ?>
 
         <h1>Le film <?= $name ?> a bien été modifié.</h1>
+        <a class="btn" href="table1_gestion.php">Retour à la liste des films</a>
+        <a class="btn" href="table1_update_form.php?id=<?= $movieId ?>">Modifier de nouveau</a>
     </main>
 </body>
 

@@ -11,6 +11,7 @@ $query = $db->prepare("SELECT
             movies.revenue as revenue,
             movies.budget as budget,
             movies.release_date as release_date,
+            movies.trailer as trailer,
             GROUP_CONCAT(CONCAT(genres.name, ' (', genres.fg_color, '/', genres.bg_color, ')') SEPARATOR ', ') AS genres 
         FROM movies
         LEFT JOIN movies_genres ON movies.id = movies_genres.film_id 
@@ -47,9 +48,15 @@ $movie = $query->fetch(PDO::FETCH_ASSOC);
             echo '<h1 class="center mt-32">Le film n\'existe pas</h1>';
         } else {
         ?>
-            <div class="card image">
-                <iframe src="https://www.youtube.com/embed/VFLkMDEO-Xc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <?php
+            if (isset($movie['trailer'])) {
+            ?>
+                <div class="card image">
+                    <iframe src="https://www.youtube.com/embed/<?= $movie['trailer'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            <?php
+            }
+            ?>
             <section class="mt-32">
                 <h1><?= $movie['name'] ?></h1>
                 <p><?= $movie['description'] ?></p>

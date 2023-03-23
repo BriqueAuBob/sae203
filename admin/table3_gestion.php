@@ -1,5 +1,6 @@
 <?php
 require '../lib/db.inc.php';
+require '../lib/lib.inc.php';
 
 $page = $_GET['page'] ?? 1;
 $per_page = 25;
@@ -23,10 +24,10 @@ $search = $_GET['search'] ?? '';
     ?>
 
     <main>
-        <h1>Films</h1>
+        <h1>Acteurs</h1>
         <div class="space-between">
             <a class="btn" href="table3_new_form.php">Ajouter un acteur</a>
-            <form class="search" action="table3_gestion.php" method="GET">
+            <form id="search" class="search" action="table3_gestion.php" method="GET">
                 <input type="hidden" name="page" value="1">
                 <input type="search" placeholder="Rechercher" name="search" value="<?= $search ?>">
             </form>
@@ -69,29 +70,11 @@ $search = $_GET['search'] ?? '';
         </table>
 
         <?php
-        $count = $db->prepare('SELECT COUNT(*) FROM actors  WHERE first_name LIKE :search OR last_name LIKE :search OR nationality LIKE :search');
-        $count->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
-        $count->execute();
-        $count = $count->fetchColumn();
-        $pages = ceil($count / $per_page);
-
-        echo '<div class="pagination">';
-        if ($page > 1) {
-            echo '<a href="?page=1&search=' . $search . '"><<</a>';
-            echo '<a href="?page=' . ($page - 1) . '&search=' . $search . '"><</a>';
-        }
-        for ($i = max(1, $page - 5); $i <= min($pages, $page + 5); $i++) {
-            $class = '';
-            if ($page == $i) {
-                $class = 'class="active"';
-            }
-            echo "<a $class href=\"?page=$i&search=$search\">$i</a>";
-        }
-        if ($page < $pages) {
-            echo '<a href="?page=' . ($page + 1) . '&search=' . $search . '">></a>';
-            echo '<a href="?page=' . $pages . '&search=' . $search . '">>></a>';
-        }
-        echo '</div>';
+        displayPagination($page, $per_page, $search, 'actors', [
+            'first_name',
+            'last_name',
+            'nationality'
+        ]);
         ?>
     </main>
 </body>
