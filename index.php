@@ -46,7 +46,13 @@ $movies = $query->fetchAll(PDO::FETCH_ASSOC);
                         <div class="overlay">
                             <div class="texts">
                                 <h1><?= $movie['name'] ?></h1>
-                                <p><?= $movie['description'] ?></p>
+                                <?php
+                                if ($movie['description'] !== '') {
+                                ?>
+                                    <p><?= strlen($movie['description']) > 300 ? strstr(wordwrap($movie['description'], 300), "\n", true) . '...' : $movie['description'] ?></p>
+                                <?php
+                                }
+                                ?>
                                 <div class="genres">
                                     <?php
                                     $genres = explode(', ', $movie['genres']);

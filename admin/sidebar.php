@@ -12,6 +12,7 @@ $currentLink = basename($_SERVER['PHP_SELF']);
             <li><a <?= $currentLink === 'table1_gestion.php' ? 'class="active"' : '' ?> href="films">Films</a></li>
             <li><a <?= $currentLink === 'table2_gestion.php' ? 'class="active"' : '' ?> href="genres">Genres</a></li>
             <li><a <?= $currentLink === 'table3_gestion.php' ? 'class="active"' : '' ?> href="acteurs">Acteurs</a></li>
+            <li><a class="back" href="/">Retour au site</a></li>
         </ul>
     </nav>
     <?php

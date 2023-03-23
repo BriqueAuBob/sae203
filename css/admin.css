@@ -76,6 +76,15 @@ nav#menu > ul > li > a:hover {
   background: #2c2c2c;
 }
 
+nav#menu > ul > li > a.back {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+nav#menu > ul > li > a.back:hover {
+  background: #301515;
+}
+
 aside .user {
   margin-top: auto;
   font-weight: 700;
@@ -321,6 +330,41 @@ form .btn {
   height: 24px;
 }
 
+.card {
+  background: #181818;
+  border-radius: 8px;
+  padding: 24px;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid #2b2b2b;
+}
+
+.card h1 {
+  font-size: 32 px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.card h2 {
+  font-size: 54px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.card .btn-list {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
 @media screen and (max-width: 768px) {
   body {
     display: block;
@@ -348,5 +392,15 @@ form .btn {
 
   .burger_icon {
     display: flex;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .grid-3 {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -19,33 +19,40 @@ function transformToWebp($picture, $path)
     imagewebp($webp, $path);
 }
 
+function paginationUrlBuilder($page, $search)
+{
+    return "?page=$page" . ($search !== '' ? "&search=$search" : '');
+}
+
 function displayPagination($page, $per_page, $search, $table, $fields)
 {
     global $db;
 
     $fields = implode(' LIKE :search OR ', $fields) . ' LIKE :search';
 
-    $count = $db->prepare("SELECT COUNT(*) FROM $table WHERE $fields");
-    $count->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+    $count = $db->prepare("SELECT COUNT(*) FROM $table" . ($fields === ' LIKE :search' ? '' : " WHERE $fields"));
+    if ($fields !== ' LIKE :search') {
+        $count->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+    }
     $count->execute();
     $count = $count->fetchColumn();
     $pages = ceil($count / $per_page);
 
     echo '<div class="pagination">';
     if ($page > 1) {
-        echo '<a href="?page=1&search=' . $search . '"><<</a>';
-        echo '<a href="?page=' . ($page - 1) . '&search=' . $search . '"><</a>';
+        echo '<a href="' . paginationUrlBuilder(1, $search) . '"><<</a>';
+        echo '<a href="' . paginationUrlBuilder($page - 1, $search) . '"><</a>';
     }
     for ($i = max(1, $page - 5); $i <= min($pages, $page + 5); $i++) {
         $class = '';
         if ($page == $i) {
             $class = 'class="active"';
         }
-        echo "<a $class href=\"?page=$i&search=$search\">$i</a>";
+        echo "<a $class href=\"" . paginationUrlBuilder($i, $search) . "\">$i</a>";
     }
     if ($page < $pages) {
-        echo '<a href="?page=' . ($page + 1) . '&search=' . $search . '">></a>';
-        echo '<a href="?page=' . $pages . '&search=' . $search . '">>></a>';
+        echo '<a href="' . paginationUrlBuilder($page + 1, $search) . '">></a>';
+        echo '<a href="' . paginationUrlBuilder($pages, $search) . '">>></a>';
     }
     echo '</div>';
 }

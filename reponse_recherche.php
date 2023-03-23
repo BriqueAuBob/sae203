@@ -55,7 +55,7 @@ if (empty($_GET['name'])) {
                         <div class="overlay minimal">
                             <div class="content">
                                 <h1><?= $movie['name'] ?></h1>
-                                <p><?= substr($movie['description'], 0, 120) ?></p>
+                                <p><?= strstr(wordwrap($movie['description'], 120), "\n", true) ?>...</p>
                                 <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge"><?= convertMinutesToHours($movie['duration']) ?></span>
                                 <div class="genres">
                                     <?php

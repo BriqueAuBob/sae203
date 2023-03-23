@@ -16,6 +16,8 @@
     require('lib/db.inc.php');
     require('lib/lib.inc.php');
 
+    $per_page = 50;
+
     $query = $db->prepare("SELECT 
         movies.id as id,
         movies.name as name, 
@@ -29,7 +31,10 @@
         LEFT JOIN movies_genres ON movies.id = movies_genres.film_id 
         LEFT JOIN genres ON movies_genres.genre_id = genres.id
         GROUP BY movies.id
+        LIMIT :limit OFFSET :offset
     ");
+    $query->bindValue(':offset', (($_GET['page'] ?? 1) - 1) * $per_page, PDO::PARAM_INT);
+    $query->bindValue(':limit', $per_page, PDO::PARAM_INT);
     $query->execute();
     $movies = $query->fetchAll(PDO::FETCH_ASSOC);
     ?>
@@ -45,7 +50,7 @@
                     <div class="overlay minimal">
                         <div class="content">
                             <h1><?= $movie['name'] ?></h1>
-                            <p><?= substr($movie['description'], 0, 120) ?></p>
+                            <p><?= strstr(wordwrap($movie['description'], 120), "\n", true) ?>...</p>
                             <span class="tag"><img src="/images/clock.svg" alt="Pictogramme horloge"><?= convertMinutesToHours($movie['duration']) ?></span>
                             <div class="genres">
                                 <?php
@@ -89,8 +94,11 @@
             }
             ?>
         </section>
-        <div class="mt-24">
+        <div class="mt-24 space-between">
             <a href="index.php" class="btn black big"><img src="/images/arrow-back.svg" alt="Pictogramme flèche gauche">Retour</a>
+            <?php
+            displayPagination($_GET['page'] ?? 1, $per_page, '', 'movies', []);
+            ?>
         </div>
     </main>
 
