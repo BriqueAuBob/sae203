@@ -15,7 +15,7 @@
     ?>
 
     <main>
-        <h1>Ajouter un film</h1>
+        <h1>Ajouter un genre</h1>
         <form method="POST" action="table2_new_valide.php" enctype="multipart/form-data">
             <div>
                 <label for="name">Nom du genre</label>

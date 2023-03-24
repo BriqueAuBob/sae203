@@ -21,7 +21,7 @@
     ?>
 
     <main>
-        <h1>Ajouter un film</h1>
+        <h1>Modifier un genre</h1>
         <form method="POST" action="table2_update_valide.php" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $id ?>">
             <div>
