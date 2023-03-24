@@ -612,6 +612,11 @@ input {
     justify-content: space-between;
   }
 
+  .space-between > * {
+    width: auto;
+    justify-content: flex-start;
+  }
+
   header > .burger_icon {
     display: none;
   }
